@@ -10,9 +10,11 @@ st.set_page_config(page_title="VideoGame Sales Data",
                    page_icon=":bar_chart:",
                    layout="wide")
 st.markdown(""" <style>
-# MainMenu {visibility: hidden;}
+#MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
+header {visibility: hidden;}
 </style> """, unsafe_allow_html=True)
+
 
 # adding dark theme to the plt plots
 plt.style.use("dark_background")
@@ -23,6 +25,7 @@ st.header("VideoGames Sales Data Visualization")
 
 width = st.sidebar.slider("Width", min_value=6, max_value=20, value=10)
 height = st.sidebar.slider("Height", min_value=1, max_value=10, value=3)
+
 
 # loading data
 data = pd.read_csv("./vgsales.csv")
@@ -39,6 +42,7 @@ c3.metric("Total Platforms", len(data['Platform'].unique()))
 # 2 Checkbox to show dataset
 if st.checkbox("Show Data"):
     st.write(data)
+
 
 # 3 Total data data distribution according to Platform or Genre accornding to the selection
 op = st.selectbox("Select one of the following", ["Platform", "Genre"])
@@ -144,4 +148,4 @@ st.pyplot(fig)
 
 
 # Adding My credentials in sidebar
-st.sidebar.write("Harbir Singh")
+st.sidebar.write("Made by Harbir Singh")
