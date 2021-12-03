@@ -1,0 +1,13 @@
+Harbir Singh 
+101917050
+CSE2
+
+TO RUN :-
+  Method 1: Online
+    Hosted on https://dashboard-vgdata.herokuapp.com/
+  
+  Method 2: Offline / local machine
+    1. Create Virtual Environment on Python using commads :  "pip install virtualenv"  and then : "python -m venv myenv"
+    2. Run Virtual Environment by typing  "\myenv\scripts\activate" on comand prompt
+    3. Run Command : "pip install -r requirements.txt"
+    4. Run Command : "streamlit run app.py"
