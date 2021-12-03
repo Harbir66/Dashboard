@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-# Basic Page Configurations to to make GUI a little better
+# # Basic Page Configurations to to make GUI a little better
 st.set_page_config(page_title="VideoGame Sales Data",
                    page_icon=":bar_chart:",
                    layout="wide")
@@ -57,7 +57,7 @@ st.bar_chart(data[op].value_counts(), height=400, use_container_width=True)
 fig, ax = plt.subplots(figsize=(width, height))
 st.subheader("Salesdata by Year")
 op1 = st.multiselect(
-    "Select Sales Category", ["NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales", "Global_Sales"], default=["Global_Sales"])
+    "Select Sales Category", ["NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales", "Global_Sales"], default="Global_Sales")
 group1 = data.groupby('Year').sum()  # Grouping the data by Years
 ax.plot(group1[op1], label=op1)
 ax.set_xlabel("Years")
@@ -72,7 +72,7 @@ left, right = st.columns(2)  # creating 2 container/columns for Piecharts
 # # 5.1 PieChart of Salesdata by region
 left.subheader("SalesData by Region")
 lst = []
-plt.figure(1)  # assigning figure number to plot for using in later
+plt.figure(2)  # assigning figure number to plot for using in later
 for i in data.columns[6:-1]:
     # Calculting total sales data of region and appending it into list
     lst.append(sum(data[i]))
@@ -81,17 +81,17 @@ mylabels = data.columns[6:-1]
 plt.pie(lst, labels=mylabels, autopct='%1.1f%%')
 plt.legend()
 plt.tight_layout()
-left.pyplot(plt.figure(1))
+left.pyplot(plt.figure(2))
 
 # # 5.2 Piechart of Salesdata by Genre
 right.subheader("Salesdata by Genre")
-plt.figure(2)
+plt.figure(3)
 group1 = data.groupby('Genre').sum()  # Grouping data by Genre
 mlabels = data["Genre"].unique()
 plt.pie(group1["Global_Sales"], labels=mlabels, autopct='%1.1f%%')
 plt.legend()
 plt.tight_layout()
-right.pyplot(plt.figure(2))
+right.pyplot(plt.figure(3))
 
 # # 6 Genre wise Average Sales
 st.subheader("Genre wise average Sales")
