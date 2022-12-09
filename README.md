@@ -7,4 +7,4 @@ CSE2
 
 See Document for information on how to run it
 
-Hosted at https://dashboard-vgdata.herokuapp.com/
+Hosted at https://harbir66-dashboard-app-9u56f7.streamlit.app/
